@@ -28,7 +28,7 @@ function Logo() {
       className="group font-display text-xl font-bold tracking-tight"
       aria-label="Back to home"
     >
-      <span className="text-gradient group-hover:brightness-125 transition-all">MO.</span>
+      <img src="/mo-logo.png" alt="MO logo" className="h-24 w-auto" />
     </Link>
   );
 }
