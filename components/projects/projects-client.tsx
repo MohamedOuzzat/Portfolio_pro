@@ -64,6 +64,7 @@ export function ProjectsClient() {
                 <motion.div
                   key={p.slug}
                   layout
+                  className="min-w-0"
                   initial={{ opacity: 0, scale: 0.94 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.94 }}

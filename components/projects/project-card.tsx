@@ -15,7 +15,7 @@ export function ProjectCard({ project, index = 0 }: { project: Project; index?: 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, delay: (index % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="h-full"
+      className="min-w-0 h-full"
     >
       <TiltCard className="group flex h-full flex-col overflow-hidden rounded-xl border border-white/8 bg-ink-900/60 shadow-soft">
         <div className="relative">
