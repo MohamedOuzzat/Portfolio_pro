@@ -103,9 +103,11 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.85 }}
             className="mt-5 max-w-xl text-base leading-relaxed text-mist-400 md:text-lg"
           >
-            {site.tagline} From Marrakech, building for the world —{" "}
-            <span className="text-mist-100">5+ tech stacks</span>,{" "}
-            <span className="text-mist-100">10+ shipped projects</span>, one obsession with craft.
+            {site.tagline} I&apos;m a <span className="text-mist-100">React Developer</span>,{" "}
+            <span className="text-mist-100">Laravel Developer</span>, and{" "}
+            <span className="text-mist-100">Next.js Developer</span> based in Marrakech,
+            Morocco — <span className="text-mist-100">10+ shipped projects</span>, one obsession
+            with craft.
           </motion.p>
 
           <motion.div
@@ -180,7 +182,7 @@ export function Hero() {
             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 shadow-soft">
               <Image
                 src="/images/profile.jpg"
-                alt="Mohamed Ouzzat"
+                alt="Mohamed Ouzzat — Full Stack & ServiceNow Developer from Marrakech, Morocco"
                 width={480}
                 height={520}
                 priority

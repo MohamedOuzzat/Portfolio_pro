@@ -18,7 +18,7 @@ import { FadeUp } from "@/components/motion/fade";
 import { WordReveal, BlurReveal } from "@/components/motion/reveal";
 import { Magnetic } from "@/components/motion/magnetic";
 import { ProjectVisual } from "./project-visual";
-import { getAdjacentProjects, type Project } from "@/data/projects";
+import { projects, type Project } from "@/data/projects";
 
 function SectionTitle({ icon, title }: { icon: React.ReactNode; title: string }) {
   return (
@@ -33,9 +33,23 @@ function SectionTitle({ icon, title }: { icon: React.ReactNode; title: string })
   );
 }
 
-export function ProjectDetailsClient({ project }: { project: Project }) {
-  const { prev, next } = getAdjacentProjects(project.slug);
-  const { prev: prevReal, next: nextReal } = { prev, next };
+export function ProjectDetailsClient({
+  project,
+  prev,
+  next,
+}: {
+  project: Project;
+  prev: Project | null;
+  next: Project | null;
+}) {
+  const related = projects
+    .filter((p) => p.slug !== project.slug)
+    .sort((a, b) => {
+      const aScore = a.categories.filter((c) => project.categories.includes(c)).length;
+      const bScore = b.categories.filter((c) => project.categories.includes(c)).length;
+      return bScore - aScore;
+    })
+    .slice(0, 3);
 
   return (
     <>
@@ -56,6 +70,26 @@ export function ProjectDetailsClient({ project }: { project: Project }) {
           style={{ background: `${project.color}22` }}
         />
         <div className="relative mx-auto max-w-6xl px-5 md:px-8">
+          <nav aria-label="Breadcrumb" className="mb-8">
+            <ol className="flex flex-wrap items-center gap-1.5 font-mono text-xs text-mist-500">
+              <li>
+                <Link href="/" className="transition-colors hover:text-primary-400">
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link href="/projects" className="transition-colors hover:text-primary-400">
+                  Projects
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-mist-300">
+                {project.name}
+              </li>
+            </ol>
+          </nav>
+
           <Link
             href="/projects"
             className="group mb-8 inline-flex items-center gap-2 font-mono text-xs text-mist-400 transition-colors hover:text-primary-400"
@@ -270,12 +304,41 @@ export function ProjectDetailsClient({ project }: { project: Project }) {
         </div>
       </section>
 
+      {/* Related Projects */}
+      {related.length > 0 && (
+        <section className="border-b border-white/8 bg-ink-900/40 py-20">
+          <div className="mx-auto max-w-6xl px-5 md:px-8">
+            <SectionTitle icon={<Sparkles className="size-5" />} title="Related Projects" />
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {related.map((p, i) => (
+                <FadeUp key={p.slug} delay={i * 0.08}>
+                  <Link
+                    href={`/projects/${p.slug}`}
+                    className="group block h-full overflow-hidden rounded-xl border border-white/8 bg-ink-900/60 transition-colors hover:border-primary-500/40"
+                  >
+                    <div className="overflow-hidden">
+                      <ProjectVisual project={p} className="aspect-[16/9]" />
+                    </div>
+                    <div className="p-5">
+                      <h3 className="font-display text-base font-bold text-mist-100 transition-colors group-hover:text-primary-400">
+                        {p.name}
+                      </h3>
+                      <p className="mt-1.5 text-sm text-mist-400">{p.tag} Project</p>
+                    </div>
+                  </Link>
+                </FadeUp>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Prev / Next */}
       <section className="py-16">
         <div className="mx-auto grid max-w-6xl gap-5 px-5 md:grid-cols-2 md:px-8">
-          {prevReal && (
+          {prev && (
             <Link
-              href={`/projects/${prevReal.slug}`}
+              href={`/projects/${prev.slug}`}
               className="group rounded-xl border border-white/10 p-6 transition-all hover:-translate-y-1 hover:border-primary-500/40"
             >
               <div className="flex items-center gap-2 font-mono text-xs text-mist-500">
@@ -283,13 +346,13 @@ export function ProjectDetailsClient({ project }: { project: Project }) {
                 Previous project
               </div>
               <div className="mt-2 font-display text-xl font-bold text-mist-100 transition-colors group-hover:text-primary-400">
-                {prevReal.name}
+                {prev.name}
               </div>
             </Link>
           )}
-          {nextReal && (
+          {next && (
             <Link
-              href={`/projects/${nextReal.slug}`}
+              href={`/projects/${next.slug}`}
               className="group rounded-xl border border-white/10 p-6 text-right transition-all hover:-translate-y-1 hover:border-primary-500/40 md:col-start-2"
             >
               <div className="flex items-center justify-end gap-2 font-mono text-xs text-mist-500">
@@ -297,7 +360,7 @@ export function ProjectDetailsClient({ project }: { project: Project }) {
                 <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
               </div>
               <div className="mt-2 font-display text-xl font-bold text-mist-100 transition-colors group-hover:text-primary-400">
-                {nextReal.name}
+                {next.name}
               </div>
             </Link>
           )}

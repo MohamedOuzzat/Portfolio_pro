@@ -7,17 +7,28 @@ import { Counter } from "@/components/motion/counter";
 import { Parallax } from "@/components/motion/parallax";
 import { CapabilityGrid } from "@/components/servicenow/capability-grid";
 import { FlowDiagram } from "@/components/servicenow/flow-diagram";
+import { JsonLd } from "@/components/seo/json-ld";
+import { buildMetadata, personJsonLd } from "@/lib/seo";
 import { snStats } from "@/data/servicenow";
 
-export const metadata: Metadata = {
-  title: "ServiceNow",
+export const metadata: Metadata = buildMetadata({
+  title: "ServiceNow — Mohamed Ouzzat, CSA Certified ServiceNow Developer",
   description:
-    "Enterprise ServiceNow dashboard — CSA certification, ITSM, CMDB, Flow Designer automation, and platform capabilities.",
-};
+    "Mohamed Ouzzat — CSA-certified ServiceNow Developer. ITSM, CMDB, Flow Designer automation, Service Portal widgets and enterprise ServiceNow solutions built at UX4MATION.",
+  path: "/servicenow",
+  keywords: [
+    "Mohamed Ouzzat ServiceNow Developer",
+    "ServiceNow developer Morocco",
+    "ServiceNow CSA",
+    "ITSM automation",
+    "Flow Designer",
+  ],
+});
 
 export default function ServiceNowPage() {
   return (
     <>
+      <JsonLd data={personJsonLd()} />
       <PageHeader
         eyebrow="// servicenow"
         title="Enterprise ServiceNow"
@@ -53,7 +64,7 @@ export default function ServiceNowPage() {
               <div className="relative overflow-hidden rounded-2xl border border-aqua-400/25 shadow-soft">
                 <Image
                   src="/images/csa-cert.jpg"
-                  alt="ServiceNow CSA Certification"
+                  alt="Mohamed Ouzzat ServiceNow CSA Certification — Certified System Administrator"
                   width={736}
                   height={736}
                   className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"

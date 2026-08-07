@@ -1,11 +1,14 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
+import { site } from "@/data/site";
 
 export const dynamic = "force-static";
 
-const BASE_URL = "https://mohamedouzzat.vercel.app";
+const BASE_URL = site.url;
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date();
+
   const staticRoutes = [
     "",
     "/about",
@@ -18,8 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/testimonials",
     "/contact",
   ];
-
-  const lastModified = new Date();
 
   const pages = staticRoutes.map((route) => ({
     url: `${BASE_URL}${route}`,

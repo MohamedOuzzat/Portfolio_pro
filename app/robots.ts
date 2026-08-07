@@ -1,12 +1,14 @@
 import type { MetadataRoute } from "next";
+import { site } from "@/data/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/projects/*/error"],
+      disallow: ["/projects/*/error", "/api/"],
     },
-    sitemap: "https://mohamedouzzat.vercel.app/sitemap.xml",
+    sitemap: `${site.url}/sitemap.xml`,
+    host: site.url,
   };
 }

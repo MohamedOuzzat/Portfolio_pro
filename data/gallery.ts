@@ -11,22 +11,22 @@ export const galleryCategories = ["All", "Studio", "Work", "Certifications"] as 
 export const galleryItems: GalleryItem[] = [
   {
     src: "/images/profile.jpg",
-    title: "Portrait",
+    title: "Mohamed Ouzzat Portrait",
     category: "Studio",
-    caption: "Professional portrait — the face behind the code.",
+    caption: "Professional portrait of Mohamed Ouzzat — Full Stack & ServiceNow Developer from Marrakech, Morocco.",
     tall: true,
   },
   {
     src: "/images/ux4mation.jpg",
-    title: "UX4MATION",
+    title: "Mohamed Ouzzat at UX4MATION",
     category: "Work",
-    caption: "Where I build enterprise ServiceNow solutions and full-stack apps.",
+    caption: "Where I build enterprise ServiceNow solutions and full-stack web applications.",
   },
   {
     src: "/images/csa-cert.jpg",
-    title: "CSA Certification",
+    title: "Mohamed Ouzzat ServiceNow CSA Certification",
     category: "Certifications",
-    caption: "ServiceNow Certified System Administrator.",
+    caption: "ServiceNow Certified System Administrator (CSA) earned by Mohamed Ouzzat.",
   },
 ];
 

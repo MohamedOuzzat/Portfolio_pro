@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -28,7 +29,14 @@ function Logo() {
       className="group font-display text-xl font-bold tracking-tight"
       aria-label="Back to home"
     >
-      <img src="/mo-logo.png" alt="MO logo" className="h-24 w-auto" />
+      <Image
+        src="/mo-logo.png"
+        alt="Mohamed Ouzzat — Home"
+        width={612}
+        height={407}
+        className="h-24 w-auto"
+        priority
+      />
     </Link>
   );
 }

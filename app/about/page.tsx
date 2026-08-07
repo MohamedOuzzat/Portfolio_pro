@@ -8,18 +8,23 @@ import { WordReveal, BlurReveal } from "@/components/motion/reveal";
 import { Counter } from "@/components/motion/counter";
 import { Parallax } from "@/components/motion/parallax";
 import { Magnetic } from "@/components/motion/magnetic";
+import { JsonLd } from "@/components/seo/json-ld";
+import { buildMetadata, personJsonLd } from "@/lib/seo";
 import { site } from "@/data/site";
 import { journey, aboutStats, experience } from "@/data/experience";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata: Metadata = buildMetadata({
+  title: "About — Mohamed Ouzzat",
   description:
-    "The story, mission and vision of Mohamed Ouzzat — Full Stack & ServiceNow Developer from Marrakech.",
-};
+    "The story, mission and vision of Mohamed Ouzzat — Full Stack & ServiceNow Developer from Marrakech, Morocco. Learn how I build premium web apps with Next.js, React, Laravel and ServiceNow.",
+  path: "/about",
+  keywords: ["About Mohamed Ouzzat", "Mohamed Ouzzat Full Stack Developer", "Mohamed Ouzzat Morocco"],
+});
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={personJsonLd()} />
       <PageHeader
         eyebrow="// about"
         title="Turning curiosity into"
@@ -39,7 +44,7 @@ export default function AboutPage() {
               <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 shadow-soft">
                 <Image
                   src="/images/profile.jpg"
-                  alt="Mohamed Ouzzat portrait"
+                  alt="Mohamed Ouzzat portrait — Full Stack & ServiceNow Developer, Marrakech Morocco"
                   width={900}
                   height={1000}
                   className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"

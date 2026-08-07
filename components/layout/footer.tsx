@@ -26,7 +26,8 @@ export function Footer() {
               <span className="text-gradient group-hover:brightness-125 transition-all">MO.</span>
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-mist-400">
-              {site.role}. {site.tagline}
+              Mohamed Ouzzat — Full Stack Developer, ServiceNow Developer and Software
+              Engineer. {site.tagline}
             </p>
             <div className="mt-5 flex gap-3">
               <a
