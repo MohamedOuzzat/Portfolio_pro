@@ -46,13 +46,6 @@ export const metadata: Metadata = {
   creator: site.name,
   publisher: site.name,
   applicationName: site.name,
-  icons: {
-    icon: [
-      { url: "/icon", type: "image/png", sizes: "64x64" },
-      { url: "/mo-logo.png", type: "image/png" },
-    ],
-    apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
