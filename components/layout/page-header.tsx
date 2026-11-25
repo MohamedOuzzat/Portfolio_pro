@@ -18,27 +18,19 @@ export function PageHeader({
   return (
     <section
       className={cn(
-        "relative overflow-hidden border-b border-white/8 pt-36 pb-20",
+        "relative overflow-hidden border-b border-line pb-20 pt-36",
         className
       )}
     >
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-40"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(99,102,241,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.06) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-      <Aurora className="opacity-60" />
+      <div aria-hidden="true" className="neural-grid absolute inset-0 opacity-60" />
+      <Aurora className="opacity-70" />
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
         <BlurReveal>
-          <div className="mb-5 flex items-center gap-2 font-mono text-xs tracking-widest text-primary-400 uppercase">
-            <span className="h-px w-10 bg-primary-500/50" />
+          <div className="mb-5 flex items-center gap-2.5 font-mono text-xs uppercase tracking-widest text-cyan-400">
+            <span className="h-px w-10 bg-gradient-to-r from-violet-500 to-cyan-400" />
             {eyebrow}
           </div>
-          <h1 className="font-display max-w-3xl text-5xl font-bold leading-[1.05] tracking-tight text-mist-100 md:text-6xl">
+          <h1 className="font-display max-w-3xl text-5xl font-bold leading-[1.03] tracking-[-0.03em] text-mist-100 md:text-6xl">
             {title}
             {highlight && (
               <>

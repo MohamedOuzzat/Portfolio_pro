@@ -39,7 +39,7 @@ export function CTASection() {
             <a
               href={site.cv}
               download
-              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-7 py-3.5 text-sm font-semibold text-mist-100 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-primary-500/50 hover:text-primary-400"
+              className="inline-flex items-center gap-2 rounded-xl border border-line bg-overlay px-7 py-3.5 text-sm font-semibold text-mist-100 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-primary-500/50 hover:text-primary-400"
             >
               <Download className="size-4" />
               Download CV

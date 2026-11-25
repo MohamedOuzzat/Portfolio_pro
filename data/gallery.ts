@@ -6,7 +6,7 @@ export type GalleryItem = {
   tall?: boolean;
 };
 
-export const galleryCategories = ["All", "Studio", "Work", "Certifications"] as const;
+export const galleryCategories = ["All", "Studio", "Certifications"] as const;
 
 export const galleryItems: GalleryItem[] = [
   {
@@ -15,12 +15,6 @@ export const galleryItems: GalleryItem[] = [
     category: "Studio",
     caption: "Professional portrait of Mohamed Ouzzat — Full Stack & ServiceNow Developer from Marrakech, Morocco.",
     tall: true,
-  },
-  {
-    src: "/images/ux4mation.jpg",
-    title: "Mohamed Ouzzat at UX4MATION",
-    category: "Work",
-    caption: "Where I build enterprise ServiceNow solutions and full-stack web applications.",
   },
   {
     src: "/images/csa-cert.jpg",

@@ -11,10 +11,10 @@ const buttonVariants = cva(
         default:
           "bg-gradient-to-br from-primary-500 to-violet-500 text-white shadow-lg shadow-primary-500/25 hover:shadow-glow hover:-translate-y-0.5",
         secondary:
-          "border border-white/10 bg-white/5 text-mist-100 backdrop-blur hover:border-primary-500/50 hover:bg-primary-500/10 hover:text-primary-400",
-        ghost: "text-mist-400 hover:text-mist-100 hover:bg-white/5",
+          "border border-line bg-overlay text-mist-100 backdrop-blur hover:border-primary-500/50 hover:bg-primary-500/10 hover:text-primary-400",
+        ghost: "text-mist-400 hover:text-mist-100 hover:bg-overlay",
         outline:
-          "border border-white/10 bg-transparent text-mist-100 hover:border-primary-500/50 hover:text-primary-400",
+          "border border-line bg-transparent text-mist-100 hover:border-primary-500/50 hover:text-primary-400",
         link: "text-primary-400 underline-offset-4 hover:underline",
         destructive: "bg-red-500/90 text-white hover:bg-red-500",
       },

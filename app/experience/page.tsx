@@ -6,9 +6,9 @@ import { buildMetadata, workExperienceJsonLd } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Experience — Mohamed Ouzzat",
   description:
-    "The professional journey of Mohamed Ouzzat — from YouCode × Simplon full-stack training to enterprise ServiceNow development at UX4MATION in Morocco.",
+    "The professional journey of Mohamed Ouzzat — from YouCode × Simplon full-stack training to enterprise ServiceNow development in Morocco.",
   path: "/experience",
-  keywords: ["Mohamed Ouzzat experience", "Mohamed Ouzzat UX4MATION", "YouCode Simplon Morocco"],
+  keywords: ["Mohamed Ouzzat experience", "ServiceNow developer Morocco", "YouCode Simplon Morocco"],
 });
 
 export default function ExperiencePage() {

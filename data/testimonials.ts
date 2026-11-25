@@ -21,32 +21,12 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "The ITSM automation he delivered cut our incident triage time dramatically. Flows are clean, documented, and the team actually enjoys using ServiceNow now.",
-    name: "IT Manager",
-    role: "Enterprise Operations",
-    company: "UX4MATION Client",
-    initials: "IM",
-    gradient: "linear-gradient(135deg, #22D3EE, #3B82F6)",
-    rating: 5,
-  },
-  {
-    quote:
       "Rare mix of frontend taste and backend rigor. Mohamed thinks about the user, the API contract, and the edge cases — usually before you ask.",
     name: "Mentor",
     role: "Lead Instructor",
     company: "YouCode × Simplon",
     initials: "YS",
     gradient: "linear-gradient(135deg, #A78BFA, #EC4899)",
-    rating: 5,
-  },
-  {
-    quote:
-      "Shipped the Service Portal widget ahead of schedule and it looked better than our internal design mock. Reliable, communicative, and fast.",
-    name: "Product Lead",
-    role: "ServiceNow Practice",
-    company: "UX4MATION",
-    initials: "PL",
-    gradient: "linear-gradient(135deg, #10B981, #22D3EE)",
     rating: 5,
   },
   {

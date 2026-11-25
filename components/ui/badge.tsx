@@ -12,8 +12,8 @@ const badgeVariants = cva(
         violet:
           "border-violet-500/30 bg-violet-500/10 text-violet-400",
         aqua: "border-aqua-400/30 bg-aqua-400/10 text-aqua-400",
-        outline: "border-white/10 bg-white/5 text-mist-400",
-        surface: "border-white/10 bg-ink-800/60 text-mist-400",
+        outline: "border-line bg-overlay text-mist-400",
+        surface: "border-line bg-ink-800/60 text-mist-400",
       },
     },
     defaultVariants: {

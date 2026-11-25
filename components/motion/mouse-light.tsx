@@ -1,8 +1,11 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, type ReactNode } from "react";
 
+/**
+ * Ambient mouse-following spotlight gradient (tracks both X and Y smoothly).
+ */
 export function MouseLight({
   children,
   className,
@@ -10,22 +13,22 @@ export function MouseLight({
   children?: ReactNode;
   className?: string;
 }) {
-  const mx = useMotionValue(-400);
-  const my = useMotionValue(-400);
-  const sx = useSpring(mx, { stiffness: 120, damping: 25 });
-  const sy = useSpring(my, { stiffness: 120, damping: 25 });
-  const bg = useTransform(
-    sx,
-    (v) =>
-      `radial-gradient(600px circle at ${v}px 300px, rgba(59,130,246,0.09), transparent 60%)`
-  );
+  const mx = useMotionValue(-600);
+  const my = useMotionValue(-600);
+  const sx = useSpring(mx, { stiffness: 110, damping: 26 });
+  const sy = useSpring(my, { stiffness: 110, damping: 26 });
+
+  const bg = useMotionTemplate`radial-gradient(640px circle at ${sx}px ${sy}px, rgba(139, 92, 246, 0.11), rgba(34, 211, 238, 0.04) 40%, transparent 70%)`;
 
   useEffect(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+
     const onMove = (e: MouseEvent) => {
       mx.set(e.clientX);
       my.set(e.clientY);
     };
-    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mousemove", onMove, { passive: true });
     return () => window.removeEventListener("mousemove", onMove);
   }, [mx, my]);
 

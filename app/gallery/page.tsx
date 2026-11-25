@@ -5,7 +5,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Gallery — Mohamed Ouzzat",
   description:
-    "A visual gallery of Mohamed Ouzzat — studio portraits, work moments and the ServiceNow CSA certification from UX4MATION and YouCode.",
+    "A visual gallery of Mohamed Ouzzat — studio portraits, work moments and the ServiceNow CSA certification.",
   path: "/gallery",
   keywords: ["Mohamed Ouzzat gallery", "Mohamed Ouzzat photos", "Mohamed Ouzzat work"],
 });

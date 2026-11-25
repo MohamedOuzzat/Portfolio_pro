@@ -26,7 +26,7 @@ export function ProjectsClient() {
         eyebrow="// projects"
         title="Featured"
         highlight="Work"
-        description="Six projects, each with its own case study — filter by stack, hover for the 3D tilt, and open a project to see the full story."
+        description="Ten projects, each with its own case study — filter by stack, hover for the 3D tilt, and open a project to see the full story."
       />
 
       <section className="py-16">
@@ -39,7 +39,7 @@ export function ProjectsClient() {
                 className={`relative rounded-lg border px-4 py-2 text-sm font-medium transition-all ${
                   filter === f
                     ? "border-primary-500/50 text-primary-400"
-                    : "border-white/10 text-mist-400 hover:border-white/25 hover:text-mist-100"
+                    : "border-line text-mist-400 hover:border-line-strong hover:text-mist-100"
                 }`}
               >
                 {filter === f && (

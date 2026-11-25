@@ -1,29 +1,31 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/home/hero";
-import { FeaturedProjects } from "@/components/home/featured-projects";
-import { SkillsPreview } from "@/components/home/skills-preview";
+import { BootSequence } from "@/components/home/boot-sequence";
+import { TechMarquee } from "@/components/home/tech-marquee";
+import { NeuralDivider } from "@/components/home/neural-divider";
+import { ExpertiseMatrix } from "@/components/home/expertise-matrix";
+import { CaseStudies } from "@/components/home/case-studies";
+import { StackArchitecture } from "@/components/home/stack-architecture";
 import { ServiceNowStrip } from "@/components/home/servicenow-strip";
+import { Timeline } from "@/components/home/timeline";
 import { TestimonialStrip } from "@/components/home/testimonial-strip";
-import { CTASection } from "@/components/home/cta-section";
+import { Signal } from "@/components/home/signal";
 import { JsonLd } from "@/components/seo/json-ld";
-import {
-  buildMetadata,
-  profilePageJsonLd,
-  personJsonLd,
-  portfolioItemJsonLd,
-  skillsJsonLd,
-} from "@/lib/seo";
+import { buildMetadata, personJsonLd, profilePageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Mohamed Ouzzat — Full Stack & ServiceNow Developer Portfolio",
+  title: "Mohamed Ouzzat — Full Stack · AI · ServiceNow Developer",
   description:
-    "Mohamed Ouzzat — Full Stack Developer, ServiceNow Developer and Software Engineer from Marrakech, Morocco. Specializing in React, Next.js, TypeScript, Laravel and enterprise ITSM automation. Explore my projects and case studies.",
+    "Mohamed Ouzzat — Full Stack Developer, AI/LLM Integration Engineer and ServiceNow Developer from Marrakech, Morocco. Building intelligent web applications with Next.js, React, TypeScript, Laravel, and automating enterprise ITSM with ServiceNow.",
   path: "/",
   keywords: [
     "Mohamed Ouzzat",
-    "Mohamed Ouzzat Portfolio",
-    "Mohamed Ouzzat Full Stack Developer",
-    "Mohamed Ouzzat ServiceNow Developer",
+    "Full Stack Developer Morocco",
+    "AI Developer",
+    "LLM Integration",
+    "GenAI",
+    "ServiceNow Developer",
+    "Next.js",
+    "Laravel",
   ],
   type: "website",
 });
@@ -33,14 +35,16 @@ export default function Home() {
     <>
       <JsonLd data={personJsonLd()} />
       <JsonLd data={profilePageJsonLd()} />
-      <JsonLd data={portfolioItemJsonLd()} />
-      <JsonLd data={skillsJsonLd()} />
-      <Hero />
-      <FeaturedProjects />
-      <SkillsPreview />
+      <BootSequence />
+      <TechMarquee />
+      <ExpertiseMatrix />
+      <NeuralDivider />
+      <CaseStudies />
+      <StackArchitecture />
       <ServiceNowStrip />
+      <Timeline />
       <TestimonialStrip />
-      <CTASection />
+      <Signal />
     </>
   );
 }

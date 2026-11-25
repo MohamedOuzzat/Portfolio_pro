@@ -4,8 +4,13 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { PageTransition } from "@/components/layout/page-transition";
+import { ScrollProgress } from "@/components/layout/scroll-progress";
+import { SmoothScroll } from "@/components/layout/smooth-scroll";
+import { Preloader } from "@/components/layout/preloader";
+import { CustomCursor } from "@/components/motion/custom-cursor";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Analytics } from "@/components/analytics/analytics";
+import { ThemeProvider } from "@/components/theme-provider";
 import {
   SITE_URL,
   defaultOpenGraphImage,
@@ -15,6 +20,20 @@ import {
   organizationJsonLd,
 } from "@/lib/seo";
 import { site } from "@/data/site";
+
+const themeInitScript = `
+(function () {
+  var t;
+  try { t = localStorage.getItem("portfolio-theme"); } catch (e) {}
+  if (t !== "dark" && t !== "light") {
+    t = "dark";
+  }
+  var root = document.documentElement;
+  root.classList.toggle("light", t === "light");
+  root.classList.toggle("dark", t === "dark");
+  root.style.colorScheme = t;
+})();
+`;
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,7 +56,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${site.name} — Full Stack & ServiceNow Developer in Morocco`,
+    default: `${site.name} — Full Stack · AI · ServiceNow Developer`,
     template: `%s`,
   },
   description: site.seoDescription,
@@ -46,11 +65,15 @@ export const metadata: Metadata = {
   creator: site.name,
   publisher: site.name,
   applicationName: site.name,
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/apple-icon.png", type: "image/png" }],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    title: `${site.name} — Full Stack & ServiceNow Developer in Morocco`,
+    title: `${site.name} — Full Stack · AI · ServiceNow Developer`,
     description: site.seoDescription,
     siteName: site.name,
     images: [
@@ -103,7 +126,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#030712",
+  themeColor: "#06060b",
   width: "device-width",
   initialScale: 1,
 };
@@ -114,26 +137,34 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <JsonLd data={personJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
         <JsonLd data={organizationJsonLd()} />
       </head>
-      <body className="grain bg-ink-950">
+      <body className="grain bg-ink-950 text-mist-100">
         <Analytics />
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary-500 focus:px-4 focus:py-2 focus:text-white"
-        >
-          Skip to main content
-        </a>
-        <Navbar />
-        <main id="main-content" className="relative z-10">
-          <PageTransition>{children}</PageTransition>
-        </main>
-        <Footer />
+        <ThemeProvider>
+          <Preloader />
+          <ScrollProgress />
+          <SmoothScroll />
+          <CustomCursor />
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-violet-600 focus:px-4 focus:py-2 focus:text-white"
+          >
+            Skip to main content
+          </a>
+          <Navbar />
+          <main id="main-content" className="relative z-10">
+            <PageTransition>{children}</PageTransition>
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

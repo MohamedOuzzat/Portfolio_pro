@@ -28,7 +28,7 @@ export function ExperienceTimeline() {
 
       <section className="py-20">
         <div ref={ref} className="relative mx-auto max-w-4xl px-5 md:px-8">
-          <div className="absolute bottom-0 left-[27px] top-0 w-px bg-white/8 md:left-1/2 md:-translate-x-1/2" />
+          <div className="absolute bottom-0 left-[27px] top-0 w-px bg-line md:left-1/2 md:-translate-x-1/2" />
           <motion.div
             aria-hidden
             style={{ scaleY: fill }}
@@ -69,7 +69,7 @@ export function ExperienceTimeline() {
                 >
                   <div className="flex items-center gap-4">
                     {exp.image && (
-                      <div className="size-12 shrink-0 overflow-hidden rounded-lg border border-white/10">
+                      <div className="size-12 shrink-0 overflow-hidden rounded-lg border border-line">
                         <Image
                           src={exp.image}
                           alt={exp.company}
@@ -92,7 +92,7 @@ export function ExperienceTimeline() {
                     {exp.tags.map((t) => (
                       <span
                         key={t}
-                        className="rounded-md border border-white/8 bg-ink-800/60 px-2 py-0.5 font-mono text-[10px] text-mist-400"
+                        className="rounded-md border border-line bg-ink-800/60 px-2 py-0.5 font-mono text-[10px] text-mist-400"
                       >
                         {t}
                       </span>

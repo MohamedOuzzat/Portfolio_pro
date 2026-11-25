@@ -128,7 +128,7 @@ export function Hero() {
             </Magnetic>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-semibold text-mist-100 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-primary-500/50 hover:text-primary-400"
+              className="inline-flex items-center gap-2 rounded-xl border border-line bg-overlay px-6 py-3.5 text-sm font-semibold text-mist-100 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-primary-500/50 hover:text-primary-400"
             >
               <Mail className="size-4" />
               Contact
@@ -179,7 +179,7 @@ export function Hero() {
               aria-hidden
               className="absolute -inset-1 animate-spin-slow rounded-full border border-dashed border-primary-500/30"
             />
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 shadow-soft">
+            <div className="relative overflow-hidden rounded-[2rem] border border-line shadow-soft">
               <Image
                 src="/images/profile.jpg"
                 alt="Mohamed Ouzzat — Full Stack & ServiceNow Developer from Marrakech, Morocco"
@@ -189,7 +189,7 @@ export function Hero() {
                 className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-xl border border-white/10 bg-ink-950/60 px-4 py-3 backdrop-blur">
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-xl border border-line bg-ink-950/60 px-4 py-3 backdrop-blur">
                 <div>
                   <div className="text-sm font-semibold text-mist-100">{site.name}</div>
                   <div className="text-[11px] text-mist-400">{site.role}</div>

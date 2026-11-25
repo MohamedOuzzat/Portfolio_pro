@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 export function GlowCard({
   children,
   className,
-  color = "rgba(59,130,246,0.5)",
+  color = "rgba(139, 92, 246, 0.22)",
 }: {
   children: ReactNode;
   className?: string;
@@ -17,7 +17,7 @@ export function GlowCard({
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
 
-  const background = useMotionTemplate`radial-gradient(280px circle at ${mx}px ${my}px, ${color}, transparent 70%)`;
+  const background = useMotionTemplate`radial-gradient(320px circle at ${mx}px ${my}px, ${color}, transparent 70%)`;
 
   const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = ref.current;
@@ -32,14 +32,14 @@ export function GlowCard({
       ref={ref}
       onMouseMove={onMouseMove}
       whileHover={{ y: -4 }}
-      transition={{ type: "spring", stiffness: 260, damping: 22 }}
+      transition={{ type: "spring", stiffness: 260, damping: 24 }}
       className={cn(
-        "group relative overflow-hidden rounded-xl border border-white/8 bg-ink-900/60 backdrop-blur-sm",
+        "glass-card group relative overflow-hidden rounded-2xl transition-colors duration-300 hover:border-violet-500/35",
         className
       )}
     >
       <motion.div
-        aria-hidden
+        aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{ background }}
       />

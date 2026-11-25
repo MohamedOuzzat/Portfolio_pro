@@ -9,7 +9,7 @@ export function SkillsPreview() {
   const featured = skillCategories.slice(0, 4);
 
   return (
-    <section className="relative border-y border-white/8 bg-ink-900/40 py-24">
+    <section className="relative border-y border-line bg-ink-900/40 py-24">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <SectionHeading
           eyebrow="// skills"
@@ -34,13 +34,13 @@ export function SkillsPreview() {
                 {cat.skills.slice(0, 4).map((s) => (
                   <span
                     key={s.name}
-                    className="rounded-md border border-white/8 bg-ink-800/60 px-2 py-0.5 font-mono text-[10px] text-mist-400"
+                    className="rounded-md border border-line bg-ink-800/60 px-2 py-0.5 font-mono text-[10px] text-mist-400"
                   >
                     {s.name}
                   </span>
                 ))}
               </div>
-              <div className="mt-5 flex items-end justify-between border-t border-white/8 pt-4">
+              <div className="mt-5 flex items-end justify-between border-t border-line pt-4">
                 <span className="text-[11px] uppercase tracking-wider text-mist-500">Top skill</span>
                 <span className="font-display text-xl font-bold text-gradient">
                   <Counter target={cat.skills[0].pct} suffix="%" />

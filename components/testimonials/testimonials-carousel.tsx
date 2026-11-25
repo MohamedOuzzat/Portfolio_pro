@@ -73,7 +73,7 @@ export function TestimonialsCarousel() {
                   <div
                     aria-hidden
                     className="pointer-events-none absolute inset-x-0 top-0 h-px"
-                    style={{ background: "linear-gradient(90deg, transparent, #3B82F6, transparent)" }}
+                    style={{ background: "linear-gradient(90deg, transparent, #8b5cf6, #22d3ee, transparent)" }}
                   />
                   <Quote className="absolute right-8 top-8 size-12 text-primary-500/15" />
                   <div className="flex gap-1">
@@ -89,7 +89,7 @@ export function TestimonialsCarousel() {
                   <blockquote className="mt-6 font-display text-xl leading-relaxed text-mist-100 md:text-2xl">
                     “{t.quote}”
                   </blockquote>
-                  <figcaption className="mt-8 flex items-center gap-4 border-t border-white/8 pt-6">
+                  <figcaption className="mt-8 flex items-center gap-4 border-t border-line pt-6">
                     <ParallaxAvatar gradient={t.gradient} initials={t.initials} />
                     <div>
                       <div className="font-semibold text-mist-100">{t.name}</div>
@@ -111,7 +111,7 @@ export function TestimonialsCarousel() {
                     onClick={() => setIndex(i)}
                     aria-label={`Go to testimonial ${i + 1}`}
                     className={`h-1.5 rounded-full transition-all duration-300 ${
-                      i === index ? "w-8 bg-primary-500" : "w-3 bg-white/15 hover:bg-white/30"
+                      i === index ? "w-8 bg-primary-500" : "w-3 bg-overlay-strong hover:bg-overlay-strong"
                     }`}
                   />
                 ))}
@@ -120,14 +120,14 @@ export function TestimonialsCarousel() {
                 <button
                   onClick={() => go(-1)}
                   aria-label="Previous testimonial"
-                  className="inline-flex size-11 items-center justify-center rounded-xl border border-white/10 text-mist-100 transition-all hover:border-primary-500/50 hover:text-primary-400"
+                  className="inline-flex size-11 items-center justify-center rounded-xl border border-line text-mist-100 transition-all hover:border-primary-500/50 hover:text-primary-400"
                 >
                   <ChevronLeft className="size-5" />
                 </button>
                 <button
                   onClick={() => go(1)}
                   aria-label="Next testimonial"
-                  className="inline-flex size-11 items-center justify-center rounded-xl border border-white/10 text-mist-100 transition-all hover:border-primary-500/50 hover:text-primary-400"
+                  className="inline-flex size-11 items-center justify-center rounded-xl border border-line text-mist-100 transition-all hover:border-primary-500/50 hover:text-primary-400"
                 >
                   <ChevronRight className="size-5" />
                 </button>
@@ -170,7 +170,7 @@ function ParallaxAvatar({ gradient, initials }: { gradient: string; initials: st
         style={{ background: gradient }}
       />
       <div
-        className="relative flex size-14 items-center justify-center rounded-full border-2 border-white/20 font-display text-lg font-bold text-white shadow-soft"
+        className="relative flex size-14 items-center justify-center rounded-full border-2 border-line-strong font-display text-lg font-bold text-white shadow-soft"
         style={{ background: gradient }}
       >
         {initials}

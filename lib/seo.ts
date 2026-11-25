@@ -120,7 +120,6 @@ export function personJsonLd() {
       "@type": "CollegeOrUniversity",
       name: "YouCode × Simplon",
     },
-    worksFor: { "@type": "Organization", name: "UX4MATION" },
   };
 }
 

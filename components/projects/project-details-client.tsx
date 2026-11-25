@@ -54,7 +54,7 @@ export function ProjectDetailsClient({
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-white/8 pt-32 pb-16">
+      <section className="relative overflow-hidden border-b border-line pt-32 pb-16">
         <div
           aria-hidden
           className="absolute inset-0 opacity-40"
@@ -123,7 +123,7 @@ export function ProjectDetailsClient({
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-br from-primary-500 to-violet-500 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-primary-500/25 transition-all hover:-translate-y-0.5 hover:shadow-glow"
+                        className="btn-accent inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold text-white shadow-lg shadow-violet-500/25"
                       >
                         Live Demo <ArrowUpRight className="size-4" />
                       </a>
@@ -133,7 +133,7 @@ export function ProjectDetailsClient({
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-mist-100 transition-all hover:-translate-y-0.5 hover:border-primary-500/50 hover:text-primary-400"
+                    className="inline-flex items-center gap-2 rounded-xl border border-line bg-overlay px-6 py-3 text-sm font-semibold text-mist-100 transition-all hover:-translate-y-0.5 hover:border-primary-500/50 hover:text-primary-400"
                   >
                     <GithubIcon className="size-4" /> Source Code
                   </a>
@@ -145,7 +145,7 @@ export function ProjectDetailsClient({
               whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="overflow-hidden rounded-2xl border border-white/10 shadow-soft"
+              className="overflow-hidden rounded-2xl border border-line shadow-soft"
             >
               <ProjectVisual project={project} className="aspect-[16/10]" />
             </motion.div>
@@ -176,7 +176,7 @@ export function ProjectDetailsClient({
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {project.features.map((f, i) => (
               <FadeUp key={f.title} delay={(i % 3) * 0.08}>
-                <div className="group h-full rounded-xl border border-white/8 bg-ink-900/60 p-6 transition-colors duration-300 hover:border-primary-500/40">
+                <div className="glass-card group h-full rounded-xl p-6 transition-colors duration-300 hover:border-violet-500/40">
                   <CheckCircle2
                     className="size-5 text-primary-400 transition-transform group-hover:scale-110"
                   />
@@ -190,7 +190,7 @@ export function ProjectDetailsClient({
       </section>
 
       {/* Architecture + Tech */}
-      <section className="border-y border-white/8 bg-ink-900/40 py-20">
+      <section className="border-y border-line bg-ink-900/40 py-20">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <SectionTitle icon={<Layers className="size-5" />} title="Architecture" />
           <div className="grid gap-5 lg:grid-cols-3">
@@ -219,7 +219,7 @@ export function ProjectDetailsClient({
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {project.tech.map((t, i) => (
                 <FadeUp key={t.name} delay={(i % 3) * 0.07}>
-                  <div className="flex items-start gap-3 rounded-xl border border-white/8 bg-ink-900/60 p-5">
+                  <div className="glass-card flex items-start gap-3 rounded-xl p-5">
                     <span className="mt-0.5 font-display text-sm font-bold text-gradient">
                       {t.name}
                     </span>
@@ -267,13 +267,13 @@ export function ProjectDetailsClient({
       </section>
 
       {/* Process + Results */}
-      <section className="border-y border-white/8 bg-ink-900/40 py-20">
+      <section className="border-y border-line bg-ink-900/40 py-20">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <SectionTitle icon={<Sparkles className="size-5" />} title="Development Process" />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {project.process.map((step, i) => (
               <FadeUp key={step.title} delay={i * 0.1}>
-                <div className="relative rounded-xl border border-white/8 bg-ink-900/60 p-6">
+                <div className="glass-card relative rounded-xl p-6">
                   <div className="font-display text-3xl font-bold text-gradient opacity-60">
                     {String(i + 1).padStart(2, "0")}
                   </div>
@@ -306,7 +306,7 @@ export function ProjectDetailsClient({
 
       {/* Related Projects */}
       {related.length > 0 && (
-        <section className="border-b border-white/8 bg-ink-900/40 py-20">
+        <section className="border-b border-line bg-ink-900/40 py-20">
           <div className="mx-auto max-w-6xl px-5 md:px-8">
             <SectionTitle icon={<Sparkles className="size-5" />} title="Related Projects" />
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -314,7 +314,7 @@ export function ProjectDetailsClient({
                 <FadeUp key={p.slug} delay={i * 0.08}>
                   <Link
                     href={`/projects/${p.slug}`}
-                    className="group block h-full overflow-hidden rounded-xl border border-white/8 bg-ink-900/60 transition-colors hover:border-primary-500/40"
+                    className="glass-card group block h-full overflow-hidden rounded-xl transition-colors hover:border-violet-500/40"
                   >
                     <div className="overflow-hidden">
                       <ProjectVisual project={p} className="aspect-[16/9]" />
@@ -339,7 +339,7 @@ export function ProjectDetailsClient({
           {prev && (
             <Link
               href={`/projects/${prev.slug}`}
-              className="group rounded-xl border border-white/10 p-6 transition-all hover:-translate-y-1 hover:border-primary-500/40"
+              className="group rounded-xl border border-line p-6 transition-all hover:-translate-y-1 hover:border-primary-500/40"
             >
               <div className="flex items-center gap-2 font-mono text-xs text-mist-500">
                 <ArrowLeft className="size-3.5 transition-transform group-hover:-translate-x-1" />
@@ -353,7 +353,7 @@ export function ProjectDetailsClient({
           {next && (
             <Link
               href={`/projects/${next.slug}`}
-              className="group rounded-xl border border-white/10 p-6 text-right transition-all hover:-translate-y-1 hover:border-primary-500/40 md:col-start-2"
+              className="group rounded-xl border border-line p-6 text-right transition-all hover:-translate-y-1 hover:border-primary-500/40 md:col-start-2"
             >
               <div className="flex items-center justify-end gap-2 font-mono text-xs text-mist-500">
                 Next project

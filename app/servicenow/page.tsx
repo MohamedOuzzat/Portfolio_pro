@@ -14,7 +14,7 @@ import { snStats } from "@/data/servicenow";
 export const metadata: Metadata = buildMetadata({
   title: "ServiceNow — Mohamed Ouzzat, CSA Certified ServiceNow Developer",
   description:
-    "Mohamed Ouzzat — CSA-certified ServiceNow Developer. ITSM, CMDB, Flow Designer automation, Service Portal widgets and enterprise ServiceNow solutions built at UX4MATION.",
+    "Mohamed Ouzzat — CSA-certified ServiceNow Developer. ITSM, CMDB, Flow Designer automation, Service Portal widgets and enterprise ServiceNow solutions.",
   path: "/servicenow",
   keywords: [
     "Mohamed Ouzzat ServiceNow Developer",
@@ -33,11 +33,11 @@ export default function ServiceNowPage() {
         eyebrow="// servicenow"
         title="Enterprise ServiceNow"
         highlight="Dashboard"
-        description="A CSA-certified developer's view of the platform — capabilities, automation flows, and the work shipped at UX4MATION."
+        description="A CSA-certified developer's view of the platform — capabilities, automation flows, and hands-on ServiceNow work."
       />
 
       {/* Stats */}
-      <section className="border-b border-white/8 bg-ink-900/40 py-12">
+      <section className="border-b border-line bg-ink-900/40 py-12">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-5 md:grid-cols-4 md:px-8">
           {snStats.map((s, i) => (
             <FadeUp key={s.label} delay={i * 0.08} className="text-center">
@@ -83,8 +83,7 @@ export default function ServiceNowPage() {
               <p className="mt-6 max-w-xl text-base leading-relaxed text-mist-400">
                 Hands-on, production experience configuring the ServiceNow platform — user
                 administration, table schemas, security rules, workflow automation, and the
-                Service Catalog. Currently applying it every day at UX4MATION on live ITSM
-                implementations.
+                Service Catalog — applied to live ITSM implementations.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 {[
@@ -108,7 +107,7 @@ export default function ServiceNowPage() {
       </section>
 
       {/* Flow diagram */}
-      <section className="border-y border-white/8 bg-ink-900/40 py-20">
+      <section className="border-y border-line bg-ink-900/40 py-20">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <FlowDiagram />
         </div>
@@ -131,7 +130,7 @@ export default function ServiceNowPage() {
       </section>
 
       {/* Extra widgets */}
-      <section className="border-t border-white/8 bg-ink-900/40 py-20">
+      <section className="border-t border-line bg-ink-900/40 py-20">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="grid gap-6 md:grid-cols-3">
             <FadeUp>

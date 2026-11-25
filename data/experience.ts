@@ -11,17 +11,6 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
-    role: "Full Stack Developer Intern",
-    company: "UX4MATION",
-    period: "2024 — Present",
-    location: "Remote / Marrakech",
-    description:
-      "Building enterprise-grade ServiceNow solutions and full-stack web applications. Working on ITSM automation, Flow Designer workflows, and custom Service Portal widget development.",
-    tags: ["ServiceNow", "Next.js", "Laravel", "ITSM"],
-    icon: "building",
-    image: "/images/ux4mation.jpg",
-  },
-  {
     role: "Full Stack Developer in Training",
     company: "YouCode × Simplon",
     period: "2023 — Present",
@@ -48,11 +37,6 @@ export const journey = [
     year: "2024",
     title: "ServiceNow certified",
     desc: "Earned the CSA certification and began automating enterprise ITSM workflows.",
-  },
-  {
-    year: "2024",
-    title: "Intern at UX4MATION",
-    desc: "Started building enterprise ServiceNow solutions and full-stack web apps for real clients.",
   },
   {
     year: "2025",
